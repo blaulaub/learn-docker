@@ -29,11 +29,12 @@ There are a number of severe issues with the current implementation:
 - on each build, plenty of jar files are downloaded from the central maven repository, consuming bandwidth and build time
 - the final image still carries the sources and the JDK (java development kit), while the final JAR and the JRE (Java runtime environment) would suffice
 
-Possible solutions to explore:
-- staged build, using the sources and JDK only during build, but packaging only the final JAR into an JRE image
-- with different images for JDK and JRE, seeking the best (here: size and build time, but in general: size and performance)
-- maybe with another stage to reduce the number of downloads from the central Maven repository
+Changes made upon the initial (early) solution:
+- split to a multi-staged build
+- with different base images for build and final
 
-This is now partly solved, the current build is staged. But it still uses the same base image for building and execution.
+Possible solutions to explore further:
+- smaller JRE image
+- maybe with another stage to reduce the number of downloads from the central Maven repository
 
 *That's all folks*
