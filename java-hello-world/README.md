@@ -34,4 +34,6 @@ Possible solutions to explore:
 - with different images for JDK and JRE, seeking the best (here: size and build time, but in general: size and performance)
 - maybe with another stage to reduce the number of downloads from the central Maven repository
 
+This is now partly solved, the current build is staged. But it still uses the same base image for building and execution.
+
 *That's all folks*
